@@ -36,7 +36,7 @@ app.controller(
 						$scope.selectedSong=lastSong;
 			        })
 			        .error(function(json) {
-			        	alert("Error!");
+			        	alert("Error!"+json);
 			        });
 				}
 				catch(ex){
@@ -65,7 +65,7 @@ app.controller(
 						}
 			        })
 			        .error(function(json) {
-			        	alert("Error!");
+			        	alert("Error!"+json);
 			        });
 				}
 				catch(ex){
@@ -161,7 +161,7 @@ app.controller(
 						}
 			        })
 			        .error(function(json) {
-			        	alert("Error!");
+			        	alert("Error!"+json);
 			        });
 				}
 			}
