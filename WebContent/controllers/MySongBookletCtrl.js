@@ -36,7 +36,7 @@ app.controller(
 						$scope.selectedSong=lastSong;
 			        })
 			        .error(function(json) {
-			        	alert("Error found"+JSON.stringify(json);
+			        	alert("Error found"+JSON.stringify(json));
 			        });
 				}
 				catch(ex){
