@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.ejb.songbooklet"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+  <name>EJ Song Book</name>
+
+  <description>
+      This is the song book for EJB
+  </description>
+
+  <author href="https://build.phonegap.com" email="eldhosejacob1987@gmail.com">
+      Eldhose Jacob
+  </author>
+  <plugin name="cordova-plugin-whitelist" />
+<allow-navigation href="http://*/*" />
+<allow-navigation href="https://*/*" />
+<allow-intent href="http://*/*" />
+<allow-intent href="https://*/*" />
+
+</widget>
