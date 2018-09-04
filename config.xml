@@ -14,6 +14,7 @@
   <author href="https://build.phonegap.com" email="eldhosejacob1987@gmail.com">
       Eldhose Jacob
   </author>
+    <icon src="icon.png" />
   <plugin name="cordova-plugin-whitelist" />
 <allow-navigation href="http://*/*" />
 <allow-navigation href="https://*/*" />
