@@ -14,18 +14,11 @@
 }
 .inputTextBox{
 	font-size:x-large;
+	color: #990000;
 	background-color : #f4decb;
 	border: 0px none;
-	width: 500px;
+	width: 300px;
 }
-
-.inputTextArea{
-	font-size:x-large;
-	background-color : #f4decb;
-	border: 0px none;
-	width: 900px;
-}
-
 .inputBorderTextBox{
 	font-size:x-large;
 	background-color : #f4decb;
