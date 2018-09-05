@@ -1,18 +1,18 @@
 <!doctype html>
 <html>
 <head>
-<script src="WebContent/scripts/client.js"></script>
-<script src="WebContent/controllers/YoutubePlayer.js"></script>
+<script src="https://apis.google.com/js/client.js"></script>
+<script src="../controllers/YoutubePlayer.js"></script>
 <script
-	src="WebContent/scripts/angular.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 <script
-	src="WebContent/scripts/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
-	src="WebContent/scripts/bootstrap.min.js"></script>
-<script src="WebContent/controllers/MySongBookletCtrl.js"></script>
-<link rel="stylesheet" type="text/css" href="WebContent/style/mysongbooklet.css">
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../controllers/MySongBookletCtrl.js"></script>
+<link rel="stylesheet" type="text/css" href="../style/mysongbooklet.css">
 <link rel="stylesheet"
-	href="WebContent/style/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body ng-app="mysongbooklet" ng-controller="MySongBookletCtrl"
@@ -44,62 +44,53 @@
 					ng-model="songs[selectedSong].SongName.S" class="inputTextBox"
 					 ng-disabled="!editMode"></input>
 			</div>
-			<table id="songDetailsTable">
-				<tr>
-					<th><h3>Program Owner:&nbsp;&nbsp;&nbsp;&nbsp;</h3></th>
-					<td><input class="inputTextBox"
-						ng-model="songs[selectedSong].ProgramOwner.S"
-						ng-disabled="!editMode" ng-focus="inputInFocus='ProgramOwner';"></input>
-						<div>
+			<div>
+				<div class="form-group">
+    				<h4><label for="inputProgOwner">Program Owner</label></h4>
+    				<input class="inputTextBox" id="inputProgOwner" aria-describedby="emailHelp" placeholder="Enter Program Owner"
+					ng-model="songs[selectedSong].ProgramOwner.S"
+						ng-disabled="!editMode" ng-focus="inputInFocus='ProgramOwner';">
+						<div style="position:absolute; background-color:whitesmoke;text-align:left;">
 							<p ng-repeat="songKey in getFilteredListOfSongData('ProgramOwner')"
 								ng-click="populateSelection('ProgramOwner',songKey)"
 								ng-class="{ 'songSelectionBox-Selected': searchTextBoxSelection===songKey, 'songSelectionBox-noSelection': searchTextBoxSelection!=songKey }">{{songs[songKey].ProgramOwner.S}}</p>
-						</div></td>
-				</tr>
-				<tr>
-					<th><h3>Style</h3></th>
-					<td><input class="inputTextBox"
-						ng-model="songs[selectedSong].Style.S" ng-disabled="!editMode"
-						ng-focus="inputInFocus='Style';"></input>
-						<div>
+						</div>
+  				</div>
+				<div class="form-group">
+    				<h4><label for="inputStyle">Style</label></h4>
+    				<input class="inputTextBox" id="inputStyle" aria-describedby="emailHelp" placeholder="Enter Style"
+					ng-model="songs[selectedSong].Style.S"
+						ng-disabled="!editMode" ng-focus="inputInFocus='Style';">
+						<div style="position:absolute; background-color:whitesmoke;text-align:left;">
 							<p ng-repeat="songKey in getFilteredListOfSongData('Style')"
 								ng-click="populateSelection('Style',songKey)"
 								ng-class="{ 'songSelectionBox-Selected': searchTextBoxSelection===songKey, 'songSelectionBox-noSelection': searchTextBoxSelection!=songKey }">{{songs[songKey].Style.S}}</p>
-						</div></td>
-					<td><input class="inputTextBox"
-						ng-model="songs[selectedSong].TimeSignature.S"
-						ng-disabled="!editMode" ng-focus="inputInFocus='TimeSignature';"></input>
-						<div>
-							<p ng-repeat="songKey in getFilteredListOfSongData('TimeSignature')"
-								ng-click="populateSelection('TimeSignature',songKey)"
-								ng-class="{ 'songSelectionBox-Selected': searchTextBoxSelection===songKey, 'songSelectionBox-noSelection': searchTextBoxSelection!=songKey }">{{songs[songKey].TimeSignature.S}}</p>
-						</div></td>
-				</tr>
-				<tr>
-					<th><h3>Scale</h3></th>
-					<td><input class="inputTextBox"
-						ng-model="songs[selectedSong].Scale.S" ng-disabled="!editMode"
-						ng-focus="inputInFocus='Scale';"></input>
-						<div>
+						</div>
+  				</div>
+				<div class="form-group">
+    				<h4><label for="inputScale">Scale</label></h4>
+    				<input class="inputTextBox" id="inputScale" aria-describedby="emailHelp" placeholder="Enter Scale"
+					ng-model="songs[selectedSong].Scale.S"
+						ng-disabled="!editMode" ng-focus="inputInFocus='Scale';">
+						<div style="position:absolute; background-color:whitesmoke;text-align:left;">
 							<p ng-repeat="songKey in getFilteredListOfSongData('Scale')"
 								ng-click="populateSelection('Scale',songKey)"
 								ng-class="{ 'songSelectionBox-Selected': searchTextBoxSelection===songKey, 'songSelectionBox-noSelection': searchTextBoxSelection!=songKey }">{{songs[songKey].Scale.S}}</p>
-						</div></td>
-				</tr>
-				<tr>
-					<th><h3>Tempo</h3></th>
-					<td><input class="inputTextBox"
-						ng-model="songs[selectedSong].Tempo.S" ng-disabled="!editMode"></input>
-					</td>
-				</tr>
-				<tr>
-					<th><h3>Comments</h3></th>
-					<td><textarea class="inputTextArea"
-						ng-model="songs[selectedSong].additionalComments.S"
-						ng-disabled="!editMode"></textarea></td>
-				</tr>
-			</table>
-
+						</div>
+  				</div>
+				<div class="form-group">
+    				<h4><label for="inputTempo">Tempo</label></h4>
+    				<input class="inputTextBox" id="inputTempo" aria-describedby="emailHelp" placeholder="Enter Tempo"
+					ng-model="songs[selectedSong].Tempo.S"
+						ng-disabled="!editMode" ng-focus="inputInFocus='Tempo';">
+  				</div>
+				<div class="form-group">
+    				<h4><label for="inputComments">Comments</label></h4>
+    				<input class="inputTextBox" id="inputComments" aria-describedby="emailHelp" placeholder="Enter additional Comments"
+					ng-model="songs[selectedSong].additionalComments.S"
+						ng-disabled="!editMode" ng-focus="inputInFocus='additionalComments';">
+  				</div>
+			</div>
 		</div>
 		<div id="buttonsDiv">
 			<label class="btn btn-primary active"> <input type="checkbox"
@@ -117,19 +108,12 @@
 		<div class="boxedDiv" ng-show="activeSongList!=undefined">
 			<div class="bottomBorderDiv">
 				<h3 style="margin-left:20px">{{activeSongList}}</h3>
-				<div id="buttonsDiv" style="margin-bottom:5px">
-					<label class="btn btn-primary active"> <input type="checkbox" ng-model="listEditMode"> EDIT LIST</label>
-					<button type="button" class="btn btn-primary">DELETE LIST</button>
-				</div>
 			</div>
 			<div style="margin-left: 20px;">
 				<h4 ng-show="songGroup[activeSongList]==undefined||songGroup[activeSongList].length==0">- No Songs in this list</h4>
-				<div ng-repeat="x in songGroup[activeSongList]" style="display: inline-block;width:250px;">
-					<input type="checkbox" ng-show="listEditMode">
-					<div ng-click="loadSong(x)"
+				<div ng-repeat="x in songGroup[activeSongList]" ng-click="loadSong(x)"
 					ng-class="{ 'songSelectionBox-Selected': selectedSong===x, 'songSelectionBox-noSelection': selectedSong!=x }">
 					<h4>{{songs[x].SongName.S}}</h4>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -151,7 +135,11 @@
 				</div>
 			</div>
 		</div>
-		
+		<div id="buttonsDiv" ng-show="$scope.activeSongList!=undefined">
+			<button type="button" class="btn btn-primary">REMOVE SONG
+				FROM LIST</button>
+			<button type="button" class="btn btn-primary">DELETE LIST</button>
+		</div>
 	</div>
 
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
