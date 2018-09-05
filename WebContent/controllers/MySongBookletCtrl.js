@@ -36,7 +36,7 @@ app.controller(
 						$scope.selectedSong=lastSong;
 			        })
 			        .error(function(json) {
-			        	alert("Error found"+JSON.stringify(json));
+			        	alert("Error!");
 			        });
 				}
 				catch(ex){
@@ -65,7 +65,7 @@ app.controller(
 						}
 			        })
 			        .error(function(json) {
-			        	alert("Error found"+JSON.stringify(json));
+			        	alert("Error!");
 			        });
 				}
 				catch(ex){
@@ -137,7 +137,7 @@ app.controller(
 						'style':$scope.songs[$scope.selectedSong].Style.S,
 						'tempo':$scope.songs[$scope.selectedSong].Tempo.S,
 						'scale':$scope.songs[$scope.selectedSong].Scale.S,
-						'timesignature':$scope.songs[$scope.selectedSong].TimeSignature.S,
+						'timesignature':'-',
 						'additionalComments':$scope.songs[$scope.selectedSong].additionalComments.S
 					}
 					var config = {
@@ -161,7 +161,7 @@ app.controller(
 						}
 			        })
 			        .error(function(json) {
-			        	alert("Error found"+JSON.stringify(json));
+			        	alert("Error!");
 			        });
 				}
 			}
@@ -251,8 +251,16 @@ app.controller(
 						var check=$scope.inputInFocus==filteringInput;
 						var check2=string2!=''&&string2!=undefined&&string1!=undefined&&string1.includes(string2);
 						result=check && check2;
-						if(result==true&&filteredSongList.indexOf(allSongs[songIdx])==-1){
-							filteredSongList.push(allSongs[songIdx]);
+						if(result==true && filteredSongList.indexOf(allSongs[songIdx])==-1){
+							var alreadyInList=false;
+							/*for(var filterSongIdx=0;filterSongIdx<filteredSongList.length;filterSongIdx++){
+								if(filteredSongList[filterSongIdx][filteringInput]===allSongs[songIdx][filteringInput]){
+									alreadyInList=true;
+								}
+							}*/
+							if(!alreadyInList){
+								filteredSongList.push(allSongs[songIdx]);
+							}
 						}
 				}
 			}
