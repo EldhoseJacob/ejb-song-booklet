@@ -320,7 +320,7 @@ app.controller(
 			}
 			$scope.openNav=function() {
 				$scope.sideNavOpen=true;
-    			document.getElementById("mySidenav").style.width = "150px";
+    			document.getElementById("mySidenav").style.width = "200px";
     			//document.getElementById("main").style.marginLeft = "150px";
 				document.getElementById("main").style.opacity = "0.7";
 			}
