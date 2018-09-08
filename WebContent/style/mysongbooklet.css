@@ -9,14 +9,18 @@
 	padding-top:2px;
 }
 #buttonsDiv{
-	margin-left:20px;
+	text-align: center;
 }
 .inputTextBox{
+	margin-left: 10px;
 	font-size:x-large;
-	color: #990000;
+	color: #49274a;
 	background-color : #f4decb;
 	border: 0px none;
 	width: 300px;
+}
+.labelForInput{
+	color: #9494b8;
 }
 .inputBorderTextBox{
 	font-size:x-large;
@@ -104,7 +108,7 @@
 
 .sidenav label {
 	padding-left: 15px;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     display: block;
     transition: 0.3s;
@@ -124,6 +128,11 @@
 }
 #main {
     transition: margin-left .5s;
+}
+.inputBorderTextBox{
+	font-size:x-large;
+	background-color : #f4decb;
+	border: 1px;
 }
 
 /* Color 2 */
