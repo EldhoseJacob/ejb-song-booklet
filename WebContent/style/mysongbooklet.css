@@ -7,7 +7,6 @@
 #customNavBar{
 	padding-bottom:2px;
 	padding-top:2px;
-	
 }
 #buttonsDiv{
 	margin-left:20px;
@@ -83,14 +82,48 @@
 }
 
 /* Grape */
- #bodyMasterbox{
-	background-color:#f4decb;
-}
+
 #customNavBar{
 	background-color: #49274a;
 }
 #groupTitle{
 	background-color:#94618e;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #49274a;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav label {
+	padding-left: 15px;
+    font-size: 15px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav label:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+	margin-top: 10px;
+    top: 0;
+    right: 25px;
+    font-size: 25px;
+    margin-left: 50px;
+}
+#main {
+    transition: margin-left .5s;
 }
 
 /* Color 2 */
