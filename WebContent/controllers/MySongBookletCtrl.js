@@ -318,6 +318,21 @@ app.controller(
 			        	alert("Failed to add song to list!");
 			        });
 			}
+			$scope.openNav=function() {
+				$scope.sideNavOpen=true;
+    			document.getElementById("mySidenav").style.width = "150px";
+    			//document.getElementById("main").style.marginLeft = "150px";
+				document.getElementById("main").style.opacity = "0.7";
+			}
+
+			$scope.closeNav=function() {
+				if($scope.sideNavOpen==undefined||$scope.sideNavOpen==true){
+					$scope.sideNavOpen=false;
+    				document.getElementById("mySidenav").style.width = "0";
+    				document.getElementById("main").style.marginLeft = "0";
+					document.getElementById("main").style.opacity = "1";
+				}
+			}
 		}
 ]);
 
