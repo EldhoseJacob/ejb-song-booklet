@@ -15,15 +15,24 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body ng-app="mysongbooklet" ng-controller="MySongBookletCtrl"
+<body  style="background-color:#f4decb;" ng-app="mysongbooklet" ng-controller="MySongBookletCtrl"
 	ng-keydown="keyPressEvent($event)">
-	<div id="customNavBar">
-		<h2 class="navheaderText">
+	<div id="mySidenav" class="sidenav">
+		<label href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</label>
+		<hr>
+		<label data-toggle="modal" data-target="#loadListModal" ng-click="closeNav()">Load List</label>
+		<label data-toggle="modal" data-target="#allSongsModal" ng-click="closeNav()">Show all Songs</label>
+		<hr>
+	</div>
+	<div id="main">
+	<div id="customNavBar"><h2>
+		<label class="glyphicon glyphicon-menu-hamburger " style="color:white;" ng-click="openNav()"></label>
+		<label class="navheaderText" ng-click="closeNav()">
 			<b>My Song Booklet</b>
-			<h2>
+		</label></h2>
 	</div>
 	<div id="bodyMasterbox" class="grape"
-		ng-init="getSongDetailsFrmServer()">
+		ng-init="getSongDetailsFrmServer()" ng-click="closeNav()">
 		<div style="text-align:right;">
 			<div style="display: inline-block">
 				<div style="margin: 10px 20px 10px 0px;">
@@ -46,8 +55,8 @@
 			</div>
 			<div>
 				<div class="form-group">
-    				<h4><label for="inputProgOwner">Program Owner</label></h4>
-    				<input class="inputTextBox" id="inputProgOwner" aria-describedby="emailHelp" placeholder="Enter Program Owner"
+    				<label for="inputProgOwner">Program Owner</label><br>
+    				<input class="inputTextBox" id="inputProgOwner"
 					ng-model="songs[selectedSong].ProgramOwner.S"
 						ng-disabled="!editMode" ng-focus="inputInFocus='ProgramOwner';">
 						<div style="position:absolute; background-color:whitesmoke;text-align:left;">
@@ -57,8 +66,8 @@
 						</div>
   				</div>
 				<div class="form-group">
-    				<h4><label for="inputStyle">Style</label></h4>
-    				<input class="inputTextBox" id="inputStyle" aria-describedby="emailHelp" placeholder="Enter Style"
+    				<label for="inputStyle">Style</label><br>
+    				<input class="inputTextBox" id="inputStyle"
 					ng-model="songs[selectedSong].Style.S"
 						ng-disabled="!editMode" ng-focus="inputInFocus='Style';">
 						<div style="position:absolute; background-color:whitesmoke;text-align:left;">
@@ -68,9 +77,8 @@
 						</div>
   				</div>
 				<div class="form-group">
-    				<h4><label for="inputScale">Scale</label></h4>
-    				<input class="inputTextBox" id="inputScale" aria-describedby="emailHelp" placeholder="Enter Scale"
-					ng-model="songs[selectedSong].Scale.S"
+    				<label for="inputScale">Scale</label><br>
+    				<input class="inputTextBox" id="inputScale"	ng-model="songs[selectedSong].Scale.S"
 						ng-disabled="!editMode" ng-focus="inputInFocus='Scale';">
 						<div style="position:absolute; background-color:whitesmoke;text-align:left;">
 							<p ng-repeat="songKey in getFilteredListOfSongData('Scale')"
@@ -79,14 +87,14 @@
 						</div>
   				</div>
 				<div class="form-group">
-    				<h4><label for="inputTempo">Tempo</label></h4>
-    				<input class="inputTextBox" id="inputTempo" aria-describedby="emailHelp" placeholder="Enter Tempo"
+    				<label for="inputTempo">Tempo</label><br>
+    				<input class="inputTextBox" id="inputTempo"
 					ng-model="songs[selectedSong].Tempo.S"
 						ng-disabled="!editMode" ng-focus="inputInFocus='Tempo';">
   				</div>
 				<div class="form-group">
-    				<h4><label for="inputComments">Comments</label></h4>
-    				<input class="inputTextBox" id="inputComments" aria-describedby="emailHelp" placeholder="Enter additional Comments"
+    				<label for="inputComments">Comments</label><br>
+    				<input class="inputTextBox" id="inputComments"
 					ng-model="songs[selectedSong].additionalComments.S"
 						ng-disabled="!editMode" ng-focus="inputInFocus='additionalComments';">
   				</div>
@@ -97,13 +105,10 @@
 				ng-model="editMode"> EDIT
 			</label>
 			<button type="button" ng-click="prepareForNewSong()"
-				ng-disabled="!editMode" class="btn btn-primary">NEW SONG</button>
+				ng-disabled="!editMode" class="btn btn-primary">NEW</button>
 			<button type="button" ng-click="saveSong()" class="btn btn-primary"
-				ng-disabled="!editMode">SAVE SONG</button>
-			<button type="button" class="btn btn-primary" ng-disabled="!editMode">DELETE
-				SONG</button>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">LOAD LIST</button>
-			<button type="button" class="btn btn-primary" ng-click="addSongToActiveList()">ADD SONG TO LIST</button>
+				ng-disabled="!editMode">SAVE</button>
+			<button type="button" class="btn btn-primary" ng-click="addSongToActiveList()">ADD TO LIST</button>
 		</div>
 		<div class="boxedDiv" ng-show="activeSongList!=undefined">
 			<div class="bottomBorderDiv">
@@ -117,24 +122,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="boxedDiv">
-			<div class="bottomBorderDiv" ng-show="showAllSongs" >
-				<div style="margin-left:20px;margin-top:10px;margin-bottom:10px;">
-					<button type="button" class="btn btn-primary" ng-click="showAllSongs=false;">HIDE</button>					
-				</div>
-			</div>
-			<div style="margin-left: 20px;">
-				<div style="margin-top:10px;margin-bottom:10px;" ng-show="!showAllSongs">
-					<button type="button" class="btn btn-primary"  ng-click="showAllSongs=true;arrowKeyGroup='AllSongs';">SHOW ALL SONGS</button>
-				</div>
-				<div ng-show="showAllSongs">
-				<div ng-repeat="x in songGroup['All Songs']" ng-click="loadSong(x)"
-					ng-class="{ 'songSelectionBox-Selected': selectedSong===x, 'songSelectionBox-noSelection': selectedSong!=x }">
-					<h4>{{songs[x].SongName.S}}</h4>
-				</div>
-				</div>
-			</div>
-		</div>
 		<div id="buttonsDiv" ng-show="$scope.activeSongList!=undefined">
 			<button type="button" class="btn btn-primary">REMOVE SONG
 				FROM LIST</button>
@@ -142,7 +129,7 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	<div class="modal fade" id="loadListModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -167,6 +154,28 @@
 			</div>
 		</div>
 	</div>
-
+	<div class="modal fade" id="allSongsModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">All Songs</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" >
+					<div style="height:80vh;overflow: auto;">
+				<div ng-repeat="x in songGroup['All Songs']" ng-click="loadSong(x)"
+					ng-class="{ 'songSelectionBox-Selected': selectedSong===x, 'songSelectionBox-noSelection': selectedSong!=x }">
+					<h4>{{songs[x].SongName.S}}</h4>
+				</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
